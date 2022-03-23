@@ -27,9 +27,12 @@ class MainFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(p0 : View?) {
-        when(p0?.id) {
+        when (p0?.id) {
             R.id.start -> {
-                binding?.let { Navigation.findNavController(it.start).navigate(R.id.mainFragment_to_secondPage) }
+                binding?.let {
+                    val transition = MainFragmentDirections.mainFragmentToSecondPage(it.nameSurname.text.toString())
+                    Navigation.findNavController(it.start).navigate(transition)
+                }
             }
         }
     }

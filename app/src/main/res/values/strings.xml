@@ -2,4 +2,7 @@
     <string name="app_name">Navigation Component Sample</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="please_finish_login">Hoşgeldiniz, %s .\nLütfen Kaydınızı tamamlayın!</string>
+    <string name="name_surname">Ad Soyad: %s</string>
+    <string name="phone_number">Telefon Numarası: %s</string>
 </resources>

@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 import com.maktay.navigationcomponentsample.databinding.FragmentThirdBinding
 
 class ThirdFragment : Fragment(), View.OnClickListener {
 
     private var binding : FragmentThirdBinding? = null
+    val args : ThirdFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater : LayoutInflater, container : ViewGroup?,
@@ -24,6 +26,15 @@ class ThirdFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view : View, savedInstanceState : Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.goMainButton?.setOnClickListener(this)
+
+        setData()
+    }
+
+    private fun setData() {
+        binding.let {
+            it!!.nameSurname.text = context?.getString(R.string.name_surname, args.fullName)
+            it.phoneNumber.text = context?.getString(R.string.phone_number, args.phone)
+        }
     }
 
     override fun onClick(p0 : View?) {
@@ -36,5 +47,4 @@ class ThirdFragment : Fragment(), View.OnClickListener {
             }
         }
     }
-
 }
