@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_activity_nav">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/mainFragment">
 
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.maktay.navigationcomponentsample.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/mainFragment_to_secondPage"
+            app:destination="@id/secondPage"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondPage"
+        android:name="com.maktay.navigationcomponentsample.SecondPage"
+        android:label="SecondPage"
+        tools:layout="@layout/fragment_second_page" >
+        <action
+            android:id="@+id/secondPage_to_thirdFragment"
+            app:destination="@id/thirdFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/secondPage"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.maktay.navigationcomponentsample.ThirdFragment"
+        android:label="ThirdFragment"
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/thirdFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/thirdFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
